@@ -12,15 +12,21 @@ function LoginAttempts(){
    LoginAttempts()
 
 // Users are voting on a feature. Use do...while to log each vote from an array until all votes are processed.
-// function processVotes(){
-//     let vote = 0;
-//     do{
-//         console.log(`Login attempt using do...while ${loginAttempt}`);
-//         loginAttempt += 1;
-//     }
-//     while(loginAttempt <= 3);
-//    }
-// loginAttemptDoWhile()
+function processVotes(votes){
+    let index = 0;
+    if(votes.length === 0){
+        console.log("No votes to process");
+        return;
+    }
+    do{
+        console.log(`Process vote:${votes[index]}`);
+            index += 1;
+    }
+    while(index < votes.length);
+    console.log("All votes processed.")
+   }
+   let votes = ['yes','yes','no','no','yes']
+processVotes(votes)
 
 // Loop through an array of numbers from 1–7 and use a switch to print the corresponding day name.
 function numberDays(){
@@ -108,15 +114,26 @@ function getTemperatureCondition(temperatures){
    getTemperatureCondition(temperatures)
 
 // Users are queued to register. Use a while loop to remove and print each name until the queue is empty.
+function clearRegister(queue){
+    while (queue.length > 0){
+        let user = queue.shift();
+        console.log(`Register user : ${user}`)
+    }console.log('All users have been registered')
+}
+
+let users = ["Winnie","Gilbert","John","Mary"]
+clearRegister(users);
 
 
 // Students retake a test until they score 50 or more. Use do...while to simulate attempts, increasing the score by 10 each time until it's >= 50.
-// function studentAttempt(){
-//     let studentAttempt = 0;
-//     do{
-//         console.log(`Login attempt using do...while ${loginAttempt}`);
-//         loginAttempt += 1;
-//     }
-//     while(loginAttempt <= 3);
-//    }
-// loginAttemptDoWhile()
+function studentRetakes(score){
+     score = 0
+    let studentAttempts = 1
+    do{
+        console.log(`Attempt ${studentAttempts}: Score = ${score}`);
+        studentAttempts ++;
+        score += 10
+    }
+    while(score <= 50);
+   }
+studentRetakes([10])
